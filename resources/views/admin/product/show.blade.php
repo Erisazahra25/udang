@@ -46,6 +46,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
+                                <th>Date</th>
                                 <th>Size</th>
                                 <th>Price</th>
                                 <th>Stock</th>
@@ -55,6 +56,7 @@
                             <tbody>
                             @foreach($product->productDetails()->get() as $productVariant)
                                 <tr>
+                                    <td>{{ $productVariant['updated_at'] }}</td>
                                     <td>{{ $productVariant['size'] }}</td>
                                     <td>{{ $productVariant['formatted_price'] }}</td>
                                     <td>

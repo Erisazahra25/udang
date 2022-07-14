@@ -159,4 +159,10 @@ class HomeController extends Controller
         return redirect()->route('my.order.detail', $order['id'])->withMessage('Payment proof uploaded');
     }
 
+    public function shipping()
+    {
+        $shipping = ShippingPrice::all();
+        return view('order.shipping', compact('shipping'));
+    }
+
 }

@@ -38,6 +38,8 @@ Route::post('/my/order/new', [HomeController::class, 'addProduct'])->name('my.or
 Route::post('/add-to-cart', [HomeController::class, 'addToCart']);
 Route::post('/remove-from-cart/{id}', [HomeController::class, 'removeFromCart']);
 Route::post('/create-order', [HomeController::class, 'submitOrder']);
+Route::get('/my/shipping', [HomeController::class, 'shipping'])->name('my.shipping');
+
 
 Route::group(['middleware' => ['is_admin']], function () {
 

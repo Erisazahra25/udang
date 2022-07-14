@@ -78,7 +78,7 @@ class ProductController extends Controller
     public function updateVariant(Request $request, ProductDetail $productDetail)
     {
         $request->validate([
-            'stock'=>'required|integer|min:1'
+            'stock'=>'required|integer|min:1',
         ]);
 
         $productDetail['stock'] = $request['stock'];
