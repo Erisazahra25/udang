@@ -256,7 +256,7 @@
                                         Banyuwangi Tahun 2020.
                                         <br>
                                         Dipersembahkan Kepada PT. Pasar Dunia Seafood Sebagai Wajib Pajak Yang Telah
-                                        Memberikan Kontribusi Terbaik Untuk Negara.
+                                        Memberikan Kontribusi Terbaik Untuk Negara Republik Indonesia .
                                     </h4>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                                         Dipersembahkan Kepada PT. Pasar Dunia Seafood,
                                         <br>
                                         Sebagai Pelanggan Setia Mitsubushi Fuso Selama 50 Tahun Dan Juga Berkontribusi
-                                        Untuk Kemajuan Indonesia.
+                                        Untuk Kemajuan Negara Indonesia.
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
@@ -298,7 +298,7 @@
                                     <h4> Piala Penghargaan Dari FUSO PT. Krama Yudha Tiga Berlian Motors Dan PT. Dipo
                                         Internasional Pahala Otomotif.
                                         <br>
-                                        Dipersembahkan Kepada PT. Pasar Dunia Seafood. Sebagai" Profesional Business
+                                        Dipersembahkan Kepada pegawai PT. Pasar Dunia Seafood. Sebagai "Profesional Business
                                         Partner" Dan Best Customers FUSO PT. Krama Yudha Tiga Berlian Motors,
                                         <br>
                                         Pada tahun 2018Dan Sebagai Best Driver Mitsubishi Fuso Gathering 2019.
@@ -319,7 +319,7 @@
                                     <h4> Piala Penghargaan Dari FUSO PT. Krama Yudha Tiga Berlian Motors Dan PT. Dipo
                                         Internasional Pahala Otomotif.
                                         <br>
-                                        Dipersembahkan Kepada PT. Pasar Dunia Seafood. Sebagai" Profesional Business
+                                        Dipersembahkan Kepada PT. Pasar Dunia Seafood. Sebagai "Profesional Business
                                         Partner" Dan Best Customers FUSO PT. Krama Yudha Tiga Berlian Motors,
                                         <br>
                                         Pada tahun 2018Dan Sebagai Best Driver Mitsubishi Fuso Gathering 2018.
