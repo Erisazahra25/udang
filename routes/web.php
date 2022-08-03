@@ -60,8 +60,10 @@ Route::group(['middleware' => ['is_admin']], function () {
     ]);
 
     Route::apiResource('report', ReportController::class, [
-        'only' => ['index', 'store', 'show'],
+        'only' => ['index'],
     ]);
+    Route::get('/reports', [ReportController::class, 'reports'])->name('reports');
+    Route::get('/reports/stock', [ReportController::class, 'stocksHistory'])->name('stock.history');
 
 
     Route::post('order/{order}/update-status', [OrderController::class, 'updateStatus']);

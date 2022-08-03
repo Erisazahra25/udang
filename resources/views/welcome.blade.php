@@ -247,7 +247,8 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <div class="col-md-6">
-                                    <img class="d-block w-53" src="https://i.ibb.co/z4g40zp/44.jpg" alt="1 slide">
+                                    <img class="d-block w-53" src="https://i.ibb.co/z4g40zp/44.jpg"
+                                        alt="1 slide">
                                 </div>
                                 <div class="col-md-6">
                                     <h3>Piagam Penghargaan</h3>

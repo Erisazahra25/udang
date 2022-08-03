@@ -13,6 +13,7 @@ class ProductDetail extends Model
         'size',
         'price',
         'stock',
+        'buy_price',
     ];
 
     public function product()
@@ -28,5 +29,9 @@ class ProductDetail extends Model
     public function getFormattedPriceAttribute()
     {
         return formatPrice($this['price']);
+    }
+    public function historyStocks()
+    {
+        return $this->hasMany(HistoryStock::class);
     }
 }

@@ -97,10 +97,9 @@ class HomeController extends Controller
                 return redirect()->back()->withErrors('Stock product ' . $productDetail->product['name'] . ' - ' . $productDetail['size'] . ' only ' . $productDetail['stock'] . ' left');
             }
         }
-        $order = null;
-        DB::transaction(function () use ($request, &$order) {
-            $currentUser = $request->user();
-            $order = $currentUser->orders()->where('status', 'draft')->first();
+        $currentUser = $request->user();
+        $order = $currentUser->orders()->where('status', 'draft')->first();
+        DB::transaction(function () use ($request, $order, $currentUser) {
             $order['shipping_price_id'] = $request['shipping_price_id'];
             $order['shipping_address'] = $request['shipping_address'];
             $order['status'] = $order->nextStatus();
@@ -111,7 +110,8 @@ class HomeController extends Controller
                 $order->orderDetails()->create([
                     'product_detail_id' => $request['product_detail_id'][$i],
                     'amount' => $request['amount'][$i],
-                    'price' => $productDetail['price']
+                    'price' => $productDetail['price'],
+                    'buy_price' => $productDetail['buy_price'],
                 ]);
                 $productDetail['stock'] -= $request['amount'][$i];
                 $productDetail->save();

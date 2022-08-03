@@ -48,8 +48,9 @@
                             <tr>
                                 <th>Date</th>
                                 <th>Size</th>
-                                <th>Price</th>
+                                <th>Price /Kg</th>
                                 <th>Stock</th>
+                                <th>Buy Price /Kg</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -58,15 +59,23 @@
                                 <tr>
                                     <td>{{ $productVariant['updated_at'] }}</td>
                                     <td>{{ $productVariant['size'] }}</td>
-                                    <td>{{ $productVariant['formatted_price'] }}</td>
-                                    <td>
+                                    {{-- <td>{{ $productVariant['formatted_price'] }}</td> --}}
                                         <form action="{{ route('productVariant.update', $productVariant['id']) }}" method="POST">
                                             @csrf
                                             <input type="hidden" name="_method" value="PATCH">
-                                            <input type="number" name="stock" value="{{ $productVariant['stock'] }}" required onkeyup="$('#btn-update-productVariant-{{ $productVariant['id'] }}').show()">
-                                            <button type="submit" class="btn btn-sm btn-primary" style="display: none" id="btn-update-productVariant-{{ $productVariant['id'] }}">Update Stock</button>
+                                            <td>
+                                                <input type="number" name="price" value="{{ $productVariant['price'] }}" required onkeyup="$('#btn-update-productVariantPrice-{{ $productVariant['id'] }}').show()">
+                                                <button type="submit" class="btn btn-sm btn-primary" style="display: none" id="btn-update-productVariantPrice-{{ $productVariant['id'] }}">Update Price</button>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="stock" value="{{ $productVariant['stock'] }}" required onkeyup="$('#btn-update-productVariant-{{ $productVariant['id'] }}').show()">
+                                                <button type="submit" class="btn btn-sm btn-primary" style="display: none" id="btn-update-productVariant-{{ $productVariant['id'] }}">Update Stock</button>
+                                            </td>
+                                            <td>
+                                                <input type="number" name="buy_price" value="{{ $productVariant['buy_price'] }}" required onkeyup="$('#btn-update-productVariantBuyPrice-{{ $productVariant['id'] }}').show()">
+                                                <button type="submit" class="btn btn-sm btn-primary" style="display: none" id="btn-update-productVariantBuyPrice-{{ $productVariant['id'] }}">Update Buy Price</button>
+                                            </td>
                                         </form>
-                                    </td>
                                     <td>
                                         <form
                                             action="{{ route('productVariant.remove', $productVariant['id']) }}"
@@ -114,6 +123,11 @@
                         <div class="form-group">
                             <label>Stock (Kg)</label>
                             <input type="number" min="0" class="form-control" name="stock" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Buy Price (Kg)</label>
+                            <input type="number" min="0" class="form-control" name="buy_price" required>
                         </div>
 
                     </div>

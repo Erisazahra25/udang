@@ -55,12 +55,14 @@ class ProductController extends Controller
             'size'=>'required|integer',
             'stock'=>'required|integer',
             'price'=>'required|integer',
+            'buy_price'=>'required|integer',
         ]);
 
         $productDetails = $product->productDetails()->where('size',$request['size'])->firstOrNew();
         $productDetails['size'] = $request['size'];
         $productDetails['stock'] = $request['stock'];
         $productDetails['price'] = $request['price'];
+        $productDetails['buy_price'] = $request['buy_price'];
         $productDetails->save();
 
         return redirect()->back()->withMessage('Product Variant created');
@@ -79,11 +81,22 @@ class ProductController extends Controller
     {
         $request->validate([
             'stock'=>'required|integer|min:1',
+            'price'=>'required|integer',
+            'buy_price'=>'required|integer',
         ]);
 
+        $selisihStock = $request['stock'] - $productDetail['stock'];
         $productDetail['stock'] = $request['stock'];
+        $productDetail['price'] = $request['price'];
+        $productDetail['buy_price'] = $request['buy_price'];
         $productDetail->save();
 
-        return redirect()->back()->withMessage('Product Variant stocks been updated');
+        if($selisihStock !== 0){
+            $productDetail->historyStocks()->create([
+                'stock'=>$selisihStock
+            ]);
+        }
+
+        return redirect()->back()->withMessage('Product Variant has been updated');
     }
 }

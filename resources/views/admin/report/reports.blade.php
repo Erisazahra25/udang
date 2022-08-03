@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title') Report List @stop
+@section('title') Sales Report @stop
 
 @section('content')
     <section class="content">
@@ -8,23 +8,32 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Report List</h3>
+                        <h3 class="card-title">Income Statement</h3>
                     </div>
 
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>Complete transaction</h4>
-                                    <h2>{{ formatPrice($totalComplete) }}</h2>
+                                    <h4>Capital</h4>
+                                    <h2>{{formatPrice($modal)}}</h2>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>Pending transaction</h4>
-                                    <h2>{{ formatPrice($totalPending) }}</h2>
+                                    <h4>Omset</h4>
+                                    <h2>{{formatPrice($omset)}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4>{{ $untungRugi >= 0 ? 'Profit':'Loss'}}</h4>
+                                    <h2>{{formatPrice($untungRugi)}}</h2>
+
                                 </div>
                             </div>
                         </div>
@@ -37,34 +46,33 @@
                             <label>End : </label>
                             <input type="date" class="form-control col-md-4" name="end_date" value="{{ isset($_GET['end_date'])?$_GET['end_date']:now()->format('Y-m-d') }}">
                             <p></p>
-                            <button type="submit"  class="form-control btn btn-pro btn-info btn-s col-md-2" >Filter</button>
+                            <button type="submit" class="form-control btn btn-pro btn-info btn-s col-md-2">Filter</button>
                         </form>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>User</th>
-                                <th>Shipping Address</th>
-                                <th>Total item</th>
-                                <th>Amount</th>
-                                <th>Shipping Price</th>
-                                <th>Total Amount</th>
-                                <th>Status</th>
+                                <th>Customer's Name</th>
+                                <th>Shipping Adress</th>
+                                <th>Total Item</th>
+                                <th>Omset</th>
+                                <th>Capital</th>
+                                <th>PPH</th>
+                                <th>Profit</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($orders as $order)
+                                @foreach($orders as $order)
                                 <tr>
                                     <td>{{ $order['created_at'] }}</td>
                                     <td>{{ $order['user']['name'] }}</td>
                                     <td>{{ $order['shipping_address'] }}</td>
                                     <td>{{ $order['total_item'] }} ({{ $order['total_weight'] }} Kg)</td>
                                     <td>{{ $order['amount'] }}</td>
-                                    <td>{{ $order->shippingPrice['city'] }}<br>
-                                        {{ $order['total_shipping_price'] }}
-                                    </td>
-                                    <td>{{ $order['total_payment'] }}</td>
-                                    <td>{{ $order['status'] }}</td>
+                                    <td>{{ $order['modal'] }}</td>
+                                    <td>{{ $order['pajak'] }}</td>
+                                    <td>{{ $order['untung'] }}</td>
+
                                 </tr>
                             @endforeach
                             </tbody>

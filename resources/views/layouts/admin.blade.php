@@ -62,13 +62,35 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{ route('report.index') }}" class="nav-link">
-                            <i class="nav-icon fas fa-chart-line"></i>
-                            <p>
-                                Report
-                            </p>
+                        <a href="#" class="nav-link">
+                          <i class="nav-icon fas fa-chart-line"></i>
+                          <p>
+                            Report
+                            <i class="fas fa-angle-left right"></i>
+                          </p>
                         </a>
-                    </li>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="{{ route('report.index') }}" class="nav-link">
+                              <i class="far fa-address-book nav-icon"></i>
+                              <p>Report Orders</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{ route('reports') }}" class="nav-link">
+                              <i class="nav-icon fas fa-chart-line"></i>
+                              <p>Report Gain/Loss</p>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a href="{{ route('stock.history') }}" class="nav-link">
+                              <i class="nav-icon fas fa-box"></i>
+                              <p>Stock History</p>
+                            </a>
+                          </li>
+
+                        </ul>
+                      </li>
 
                     <li class="nav-item">
                         <a href="{{ route('shipping_price.index') }}" class="nav-link">

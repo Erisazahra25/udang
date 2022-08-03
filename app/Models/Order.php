@@ -78,6 +78,27 @@ class Order extends Model
         return formatPrice($this->amount());
     }
 
+    public function getModalAttribute()
+    {
+        return formatPrice($this->modal());
+    }
+
+    public function getPajakAttribute()
+    {
+        return formatPrice(0.25/100*($this->amount() - $this->modal()));
+    }
+
+    public function getUntungAttribute()
+    {
+        return formatPrice(($this->amount() - $this->modal() - $this->pajak()));
+
+    }
+
+    public function pajak()
+    {
+        return (0.25/100*($this->amount() - $this->modal()));
+    }
+
     public function amount()
     {
         $total = 0;
@@ -93,4 +114,15 @@ class Order extends Model
         return formatPrice($this->totalShippingPrice() + $this->amount());
 
     }
+
+    public function modal()
+    {
+        $total = 0;
+        foreach ($this->orderDetails()->get() as $orderDetail) {
+            $total += $orderDetail['amount'] * $orderDetail['buy_price'];
+        }
+
+        return $total;
+    }
+
 }

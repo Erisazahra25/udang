@@ -20,62 +20,34 @@ class ProductSeeder extends Seeder
                 "id" => 1,
                 "name" => "MOLTING",
                 "image" => "/storage/images/profile/629c359a857ef.jpg",
-                "summary" => "udang tawar 1",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
-
+                "summary" => "udang tawar ",
+                "description" => "Vannamei shrimp (Litopenaeus vannamei) known aS white shrimp is a native species introduced from the waters of Central America and the countries of Central and South America such as Ecuador, Venezuela, Panama, Brazil and Mexico recently cultivated in Indonesia.",
 
             ],
             [
                 "id" => 2,
-                "name" => "fresh",
-                "image" => "/storage/images/profile/629c35c4cfb4d.jpg",
+                "name" => "FRESH",
+                "image" => "/storage/images/profile/629c359a857ef.jpg",
                 "summary" => "udang air laut",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
+                "description" => "Vannamei shrimp (Litopenaeus vannamei) known aS white shrimp is a native species introduced from the waters of Central America and the countries of Central and South America such as Ecuador, Venezuela, Panama, Brazil and Mexico recently cultivated in Indonesia.",
 
 
             ],
             [
                 "id" => 3,
                 "name" => "TRIPLE",
-                "image" => "/storage/images/profile/629c3608883c1.jpg",
+                "image" => "/storage/images/profile/629c359a857ef.jpg",
                 "summary" => "Udang Triple",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiyahallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
+                "description" => "Vannamei shrimp (Litopenaeus vannamei) known aS white shrimp is a native species introduced from the waters of Central America and the countries of Central and South America such as Ecuador, Venezuela, Panama, Brazil and Mexico recently cultivated in Indonesia.",
 
 
             ],
             [
                 "id" => 4,
-                "name" => "HALLO",
-                "image" => "/storage/images/profile/629c362251cb2.jpeg",
+                "name" => "LOBSTER",
+                "image" => "/storage/images/profile/629c359a857ef.jpg",
                 "summary" => "Udang Merah",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
-
-
-            ],
-            [
-                "id" => 5,
-                "name" => "DIVOA",
-                "image" => "/storage/images/profile/629c36424d0ad.jpg",
-                "summary" => "BAUAYND GE",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
-
-
-            ],
-            [
-                "id" => 6,
-                "name" => "KECIL",
-                "image" => "/storage/images/profile/629c36594d29b.png",
-                "summary" => "UDANG AIR GEDE",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
-
-
-            ],
-            [
-                "id" => 7,
-                "name" => "LOBSTRER",
-                "image" => "/storage/images/profile/629c366f08cec.jfif",
-                "summary" => "LOBSTEREA",
-                "description" => "hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya, hallo guys welcome di ufang ungan hiya,hallo guys welcome di ufang ungan hiya",
+                "description" => "Vannamei shrimp (Litopenaeus vannamei) known aS white shrimp is a native species introduced from the waters of Central America and the countries of Central and South America such as Ecuador, Venezuela, Panama, Brazil and Mexico recently cultivated in Indonesia.",
 
 
             ],
@@ -88,6 +60,7 @@ class ProductSeeder extends Seeder
                 "size" => 30,
                 "price" => 30000.0,
                 "stock" => 200,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -97,7 +70,7 @@ class ProductSeeder extends Seeder
                 "size" => 50,
                 "price" => 40000.0,
                 "stock" => 10,
-
+                "buy_price" => 20000.0,
 
             ],
             [
@@ -106,6 +79,8 @@ class ProductSeeder extends Seeder
                 "size" => 60,
                 "price" => 90000.0,
                 "stock" => 300,
+                "buy_price" => 20000.0,
+
 
 
             ],
@@ -115,6 +90,8 @@ class ProductSeeder extends Seeder
                 "size" => 10,
                 "price" => 40000.0,
                 "stock" => 100,
+                "buy_price" => 20000.0,
+
 
 
             ],
@@ -124,6 +101,8 @@ class ProductSeeder extends Seeder
                 "size" => 30,
                 "price" => 50000.0,
                 "stock" => 400,
+                "buy_price" => 20000.0,
+
 
 
             ],
@@ -133,6 +112,7 @@ class ProductSeeder extends Seeder
                 "size" => 80,
                 "price" => 60000.0,
                 "stock" => 80,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -142,6 +122,7 @@ class ProductSeeder extends Seeder
                 "size" => 60,
                 "price" => 70000.0,
                 "stock" => 70,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -151,6 +132,7 @@ class ProductSeeder extends Seeder
                 "size" => 90,
                 "price" => 100000.0,
                 "stock" => 30,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -160,6 +142,7 @@ class ProductSeeder extends Seeder
                 "size" => 100,
                 "price" => 90000.0,
                 "stock" => 300,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -169,6 +152,7 @@ class ProductSeeder extends Seeder
                 "size" => 80,
                 "price" => 70000.0,
                 "stock" => 30,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -178,6 +162,7 @@ class ProductSeeder extends Seeder
                 "size" => 50,
                 "price" => 40000.0,
                 "stock" => 500,
+                "buy_price" => 20000.0,
 
 
             ],
@@ -187,90 +172,11 @@ class ProductSeeder extends Seeder
                 "size" => 60,
                 "price" => 60000.0,
                 "stock" => 500,
+                "buy_price" => 20000.0,
 
 
             ],
-            [
-                "id" => 13,
-                "product_id" => 5,
-                "size" => 50,
-                "price" => 70000.0,
-                "stock" => 20,
 
-
-            ],
-            [
-                "id" => 14,
-                "product_id" => 5,
-                "size" => 60,
-                "price" => 80000.0,
-                "stock" => 300,
-
-
-            ],
-            [
-                "id" => 15,
-                "product_id" => 5,
-                "size" => 80,
-                "price" => 90000.0,
-                "stock" => 100,
-
-
-            ],
-            [
-                "id" => 16,
-                "product_id" => 6,
-                "size" => 60,
-                "price" => 80000.0,
-                "stock" => 300,
-
-
-            ],
-            [
-                "id" => 17,
-                "product_id" => 6,
-                "size" => 50,
-                "price" => 40000.0,
-                "stock" => 55,
-
-
-            ],
-            [
-                "id" => 18,
-                "product_id" => 6,
-                "size" => 90,
-                "price" => 110000.0,
-                "stock" => 500,
-
-
-            ],
-            [
-                "id" => 19,
-                "product_id" => 7,
-                "size" => 30,
-                "price" => 50000.0,
-                "stock" => 70,
-
-
-            ],
-            [
-                "id" => 20,
-                "product_id" => 7,
-                "size" => 60,
-                "price" => 70000.0,
-                "stock" => 40,
-
-
-            ],
-            [
-                "id" => 21,
-                "product_id" => 7,
-                "size" => 50,
-                "price" => 80000.0,
-                "stock" => 90,
-
-
-            ],
         ]);
     }
 }
