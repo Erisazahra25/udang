@@ -36,6 +36,7 @@
                                                 <th>Size</th>
                                                 <th>Price /Kg</th>
                                                 <th>Stock</th>
+                                                <th>Buy All</th>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -44,6 +45,7 @@
                                                     <td>{{ $productDetail['size'] }}</td>
                                                     <td>{{ $productDetail['formatted_price'] }}</td>
                                                     <td>{{ $productDetail['stock'] }}</td>
+                                                    <td> <a class="btn btn-sm btn-primary" href="/home/buyall/{{ $productDetail['id'] }}"><i class="fas fa-shopping-cart"></i> Buy all</a> </td>
                                                 </tr>
                                             @endforeach
                                             </tbody>

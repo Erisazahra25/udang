@@ -26,6 +26,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
+                                <th>Date</th>
                                 <th>Shipping Address</th>
                                 <th>Total item</th>
                                 <th>Amount</th>
@@ -38,6 +39,7 @@
                             <tbody>
                             @foreach($orders as $order)
                                 <tr>
+                                    <td>{{ $order['created_at']->format('d-m-Y') }}</td>
                                     <td>{{ $order['shipping_address'] }}</td>
                                     <td>{{ $order['total_item'] }} ({{ $order['total_weight'] }} Kg)</td>
                                     <td>{{ $order['amount'] }}</td>

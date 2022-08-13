@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\HistoryStock;
+use App\Models\HistoryPrice;
 use App\Models\Order;
 use Illuminate\Http\Request;
 
@@ -15,25 +16,29 @@ class ReportController extends Controller
                 ->whereDate('created_at', '>=', $request['start_date'])
                 ->whereDate('created_at', '<=', $request['end_date'])
                 ->get();
+            $pendingOrders = Order::whereNotIn('status', ['done', 'draft'])
+                ->whereDate('created_at', '>=', $request['start_date'])
+                ->whereDate('created_at', '<=', $request['end_date'])
+                ->get();
         } else {
             $orders = Order::where('status', 'done')->get();
+            $pendingOrders = Order::whereNotIn('status', ['done', 'draft'])->get();
         }
 
-        $completeOrders = Order::where('status', 'done')->get();
-        $pendingOrders = Order::where('status', '<>', 'done')->get();
         $totalPending = 0;
         $totalComplete = 0;
         foreach ($pendingOrders as $pendingOrder) {
             $totalPending += ($pendingOrder->amount() + $pendingOrder->totalShippingPrice());
         }
-        foreach ($completeOrders as $completeOrder) {
+        foreach ($orders as $completeOrder) {
             $totalComplete += ($completeOrder->amount() + $completeOrder->totalShippingPrice());
         }
 
         return view('admin.report.index', compact('orders', 'totalComplete', 'totalPending'));
     }
 
-    public function reports(){
+    public function reports(Request $request){
+        // Gain loss
         if (isset($request['start_date']) && isset($request['end_date'])) {
             $orders = Order::where('status', 'done')
                 ->whereDate('created_at', '>=', $request['start_date'])
@@ -43,22 +48,29 @@ class ReportController extends Controller
             $orders = Order::where('status', 'done')->get();
         }
 
-        $completeOrders = Order::where('status', 'done')->get();
         $modal = 0;
         $omset = 0;
+        $totalAmount = 0;
         $untungRugi = 0;
-        foreach($completeOrders as $order){
+        foreach($orders as $order){
             $modal += $order->modal();
             $omset += $order->amount();
+            $totalAmount += $order['total_weight'];
         }
         $untungRugi = ($omset-$modal)*(100-0.25)/100;
-        return view('admin.report.reports',compact('modal','omset','untungRugi','orders'));
+        return view('admin.report.reports',compact('modal','omset','untungRugi','orders','totalAmount'));
     }
 
     public function stocksHistory(){
         $historyStocks = HistoryStock::with('productDetail.product')->get();
 
         return view('admin.report.stock', compact('historyStocks'));
+    }
+
+    public function pricesHistory(){
+        $historyPrices = HistoryPrice::with('productDetail.product')->get();
+
+        return view('admin.report.price', compact('historyPrices'));
     }
 
 }

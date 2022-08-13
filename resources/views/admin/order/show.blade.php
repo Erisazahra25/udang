@@ -42,7 +42,8 @@
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
                                 <b>Invoice #{{ $order->created_at->timestamp }}/{{ $order['id'] }}</b><br>
-                                <b>Payment Status : {{ $order['status'] }}</b><br><br>
+                                <b>Payment Status : {{ $order['status'] }}</b><br>
+                                <b>DueTime Payment : {{$order['created_at']->addMonth(1)->format('d-F-Y')}}</b><br><br>
 
                                 <form action="/order/{{ $order['id'] }}/update-status" method="POST">
                                     @csrf

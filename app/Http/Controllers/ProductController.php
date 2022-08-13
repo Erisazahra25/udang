@@ -97,6 +97,11 @@ class ProductController extends Controller
             ]);
         }
 
+        $productDetail->historyPrice()->create([
+            'sell_price' => $productDetail['price'],
+            'buy_price' => $productDetail['buy_price'],
+        ]);
+
         return redirect()->back()->withMessage('Product Variant has been updated');
     }
 }

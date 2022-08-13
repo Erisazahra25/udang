@@ -29,6 +29,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home/buyall/{productDetail}', [HomeController::class, 'buyAll'])->name('buyall');
 Route::get('/my/order', [HomeController::class, 'order'])->name('my.order');
 Route::get('/my/order/invoice/{order}', [HomeController::class, 'orderDetail'])->name('my.order.detail');
 Route::get('/my/order/invoice/{order}/upload', [HomeController::class, 'uploadForm'])->name('my.order.detail.upload');
@@ -40,6 +41,7 @@ Route::post('/remove-from-cart/{id}', [HomeController::class, 'removeFromCart'])
 Route::post('/create-order', [HomeController::class, 'submitOrder']);
 Route::get('/my/shipping', [HomeController::class, 'shipping'])->name('my.shipping');
 
+//admin
 
 Route::group(['middleware' => ['is_admin']], function () {
 
@@ -64,6 +66,8 @@ Route::group(['middleware' => ['is_admin']], function () {
     ]);
     Route::get('/reports', [ReportController::class, 'reports'])->name('reports');
     Route::get('/reports/stock', [ReportController::class, 'stocksHistory'])->name('stock.history');
+    Route::get('/reports/price', [ReportController::class, 'pricesHistory'])->name('price.history');
+
 
 
     Route::post('order/{order}/update-status', [OrderController::class, 'updateStatus']);

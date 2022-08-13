@@ -20,6 +20,7 @@ class Order extends Model
         'draft',
         'pending_payment',
         'success_payment',
+        'shipping',
         'done',
     ];
 

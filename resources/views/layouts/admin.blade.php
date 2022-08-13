@@ -88,7 +88,12 @@
                               <p>Stock History</p>
                             </a>
                           </li>
-
+                          <li class="nav-item">
+                            <a href="{{ route('price.history') }}" class="nav-link">
+                              <i class="nav-icon fas fa-dollar-sign"></i>
+                              <p>Price History</p>
+                            </a>
+                          </li>
                         </ul>
                       </li>
 

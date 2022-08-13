@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-3">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <h4>Capital</h4>
@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <h4>Omset</h4>
@@ -28,11 +28,20 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-4">
+                        <div class="col-3">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <h4>{{ $untungRugi >= 0 ? 'Profit':'Loss'}}</h4>
                                     <h2>{{formatPrice($untungRugi)}}</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4>Total Terjual</h4>
+                                    <h2>{{ $totalAmount }} Kg</h2>
 
                                 </div>
                             </div>

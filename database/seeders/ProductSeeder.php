@@ -61,6 +61,9 @@ class ProductSeeder extends Seeder
                 "price" => 30000.0,
                 "stock" => 200,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
 
             ],
@@ -71,6 +74,9 @@ class ProductSeeder extends Seeder
                 "price" => 40000.0,
                 "stock" => 10,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
             ],
             [
@@ -80,7 +86,8 @@ class ProductSeeder extends Seeder
                 "price" => 90000.0,
                 "stock" => 300,
                 "buy_price" => 20000.0,
-
+                "created_at" => now(),
+                "updated_at" => now()
 
 
             ],
@@ -91,8 +98,8 @@ class ProductSeeder extends Seeder
                 "price" => 40000.0,
                 "stock" => 100,
                 "buy_price" => 20000.0,
-
-
+                "created_at" => now(),
+                "updated_at" => now()
 
             ],
             [
@@ -102,7 +109,8 @@ class ProductSeeder extends Seeder
                 "price" => 50000.0,
                 "stock" => 400,
                 "buy_price" => 20000.0,
-
+                "created_at" => now(),
+                "updated_at" => now()
 
 
             ],
@@ -113,6 +121,9 @@ class ProductSeeder extends Seeder
                 "price" => 60000.0,
                 "stock" => 80,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
 
             ],
@@ -123,6 +134,9 @@ class ProductSeeder extends Seeder
                 "price" => 70000.0,
                 "stock" => 70,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
 
             ],
@@ -133,6 +147,9 @@ class ProductSeeder extends Seeder
                 "price" => 100000.0,
                 "stock" => 30,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
 
             ],
@@ -143,6 +160,9 @@ class ProductSeeder extends Seeder
                 "price" => 90000.0,
                 "stock" => 300,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
 
             ],
@@ -153,6 +173,9 @@ class ProductSeeder extends Seeder
                 "price" => 70000.0,
                 "stock" => 30,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
+
 
 
             ],
@@ -163,6 +186,8 @@ class ProductSeeder extends Seeder
                 "price" => 40000.0,
                 "stock" => 500,
                 "buy_price" => 20000.0,
+                "created_at" => now(),
+                "updated_at" => now()
 
 
             ],
@@ -173,7 +198,8 @@ class ProductSeeder extends Seeder
                 "price" => 60000.0,
                 "stock" => 500,
                 "buy_price" => 20000.0,
-
+                "created_at" => now(),
+                "updated_at" => now()
 
             ],
 

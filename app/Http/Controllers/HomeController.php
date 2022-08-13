@@ -124,6 +124,25 @@ class HomeController extends Controller
         return redirect()->route('my.order.detail.upload',$order['id'])->withMessage('Please transfer with following instructions');
     }
 
+    public function buyAll(ProductDetail $productDetail){
+        if($productDetail['stock'] == 0){
+            return redirect()->back()->withErrors('Stock product habis');
+        }
+
+        $product = $productDetail->product;
+        $productDetails = $product->productDetails()->where('id',$productDetail['id'])->get()->toArray();
+        $cart = new Cart();
+        $cart->destroy();
+        $cart->create([
+            'product' => $product->toArray(),
+            'productDetails' => $productDetails,
+            'product_detail_id' => $productDetail['id'],
+            'amount' => $productDetail['stock']
+        ]);
+
+        return redirect('/my/order/new');
+    }
+
     public function orderDetail(Order $order)
     {
         return view('order.show', compact('order'));
@@ -144,7 +163,8 @@ class HomeController extends Controller
         }
 
         $request->validate([
-            'payment_proof' => "required|file|mimes:jpeg,png,jpg,gif,svg|max:1000"
+            'payment_proof' => "file|mimes:jpeg,png,jpg,gif,svg|max:1000",
+            'payment_proof_final' => "file|mimes:jpeg,png,jpg,gif,svg|max:1000"
         ]);
 
         $image_path = $order['payment_proof'];
@@ -154,6 +174,15 @@ class HomeController extends Controller
             $image_path = '/storage/payment_proof/' . $main_image;
         }
         $order['payment_proof'] = $image_path;
+
+        $image_path = $order['payment_proof_final'];
+        if ($request->file('payment_proof_final') != '') {
+            $main_image = uniqid() . '.' . $request->file('payment_proof_final')->getClientOriginalExtension();
+            $request->file('payment_proof_final')->move(storage_path('app/public/payment_proof_final'), $main_image);
+            $image_path = '/storage/payment_proof_final/' . $main_image;
+        }
+        $order['payment_proof_final'] = $image_path;
+
         $order->save();
 
         return redirect()->route('my.order.detail', $order['id'])->withMessage('Payment proof uploaded');

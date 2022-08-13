@@ -34,4 +34,8 @@ class ProductDetail extends Model
     {
         return $this->hasMany(HistoryStock::class);
     }
+    public function historyPrice()
+    {
+        return $this->hasMany(HistoryPrice::class);
+    }
 }
