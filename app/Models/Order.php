@@ -10,10 +10,12 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'shipping_price_id',
         'shipping_address',
         'status',
         'payment_proof',
+        'payment_proof_final',
     ];
 
     const STATUS_OPTION = [

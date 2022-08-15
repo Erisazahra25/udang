@@ -20,5 +20,8 @@ class UserSeeder extends Seeder
             'password' => bcrypt('123456'),
             'is_admin' => 1
         ]);
+
+        $userF = User::factory()->count(20)->make();
+        $userF->each->save();
     }
 }

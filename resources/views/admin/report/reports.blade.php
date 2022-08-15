@@ -47,6 +47,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        @foreach($resultProduct as $category)
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body text-center">
+                                    <h4>{{ $category['name'] }}</h4>
+                                    <h2>{{ $category['subTotal'] }} Kg</h2>
+
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <form action="" method="GET">

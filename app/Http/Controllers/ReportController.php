@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\HistoryStock;
 use App\Models\HistoryPrice;
 use App\Models\Order;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -58,7 +59,21 @@ class ReportController extends Controller
             $totalAmount += $order['total_weight'];
         }
         $untungRugi = ($omset-$modal)*(100-0.25)/100;
-        return view('admin.report.reports',compact('modal','omset','untungRugi','orders','totalAmount'));
+
+        $product = Product::all();
+        $resultProduct = [];
+        foreach ($product as $item) {
+            $subTotal = 0;
+            foreach ($item->productDetails()->get() as $pdl) {
+                $subTotal += $pdl->orderDetails()->sum('amount');
+            }
+
+            $resultProduct [] = [
+                'name'=>$item->name,
+                'subTotal'=> $subTotal
+            ];
+        }
+        return view('admin.report.reports',compact('modal','omset','untungRugi','orders','totalAmount','resultProduct'));
     }
 
     public function stocksHistory(){
