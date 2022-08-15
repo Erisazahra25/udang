@@ -89,10 +89,8 @@
                     <div class="col-lg-6 col-md-8 col-xs-8" data-aos="fade-right">
                         <div class="info-text">
                             <h3>Get The Shrimp You Are Looking For Here</h3>
-                            <p class="mt-3">Start at {{ formatPrice($min_price_product) }}/Kg (shipping price is calculated per kg)</p>
-                            <p class="pt-2">We recommend buying individually frozen (IQF), head-off, peel-on shrimp
-                                for most
-                                preparations.</p>
+                            <p class="mt-3">Start at {{ formatPrice($min_price_product) }}/Kg </p>
+                            <p class="pt-2"> (shipping price is calculated per kg) </p>
                             <div class="inf-btn pro">
                                 <a href="/login" class="btn btn-pro btn-secondary btn-lg">Get Started</a>
                             </div>
@@ -109,7 +107,7 @@
             <div class="container-fluid">
                 <div class="sec-title">
                     <h2 id="product"><span> Vannamei Shrimp Ready</span> Stock</h2>
-                    <p>We sell frozen shrimp and fresh shrimp</p>
+                    <p>We sell fresh shrimp</p>
                     <p style="text-align: justify"> Vannamei shrimp has several advantages compared to other types of shrimp, namely; disease resistance high, the need for a relatively lower protein content, faster growth, tolerant of changes in water temperature and dissolved oxygen
                         and able to utilize the entire water column in the cultivation container. </p>
                 </div>

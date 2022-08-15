@@ -41,13 +41,13 @@
                             </div>
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
-                                <b>Invoice #{{ $order->created_at->timestamp }}/{{ $order['id'] }}</b><br>
+                                <b>Invoice #{{ $order->created_at }}</b><br>
                                 <b>Payment Status : {{ $order['status'] }}</b><br>
                                 <b>Due Time Payment : {{$order['created_at']->addMonth(1)->format('d-F-Y')}}</b>
 
                                 @if($order['status'] === 'pending_payment')
                                 <a href="{{ route('my.order.detail.upload',$order['id']) }}" class="btn btn-success">Upload
-                                    Bukti Transfer</a>
+                                    Proof Of Payment</a>
                                 @endif
                             </div>
                             <!-- /.col -->
@@ -114,14 +114,14 @@
                             <div class="col-6">
                                 @if($order['payment_proof'] !== null)
                                     <hr>
-                                    <h6>Bukti Pembayaran DP</h6>
+                                    <h6>Proof Of Payment (DP)</h6>
                                     <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">
                                 @endif
                             </div>
                             <div class="col-6">
                                 @if($order['payment_proof_final'] !== null)
                                     <hr>
-                                    <h6>Bukti Pembayaran Pelunasan</h6>
+                                    <h6>Proof Of Payment (DONE)</h6>
                                     <img src="{{ $order['payment_proof_final'] }}" style="height: 300px; width: auto">
                                 @endif
                             </div>

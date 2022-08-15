@@ -46,7 +46,7 @@
 
                         <div class="card card-danger">
                             <div class="card-header">
-                                <h3 class="card-title">Pemesanan</h3>
+                                <h3 class="card-title">Booking</h3>
                             </div>
                             <div class="card-body" id="productVariant">
                                 <div class="row">
@@ -114,7 +114,7 @@
                                         @foreach($shippingPrices as $shippingPrice)
                                             <option value="{{ $shippingPrice['id'] }}">{{ $shippingPrice['city'] }}
                                                 -
-                                                Ongkir {{ $shippingPrice['formatted_price'] }}/Kg
+                                                Shipping {{ $shippingPrice['formatted_price'] }}/Kg
                                             </option>
                                         @endforeach
                                     </select>

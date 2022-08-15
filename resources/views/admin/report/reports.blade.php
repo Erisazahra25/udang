@@ -40,7 +40,7 @@
                         <div class="col-3">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    <h4>Total Terjual</h4>
+                                    <h4>Total Sold</h4>
                                     <h2>{{ $totalAmount }} Kg</h2>
 
                                 </div>

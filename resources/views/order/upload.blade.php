@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <h4 class="text-center">Total Payment</h4>
                             <h2 class="text-center">{{ $order['total_payment'] }}</h2>
-                            <p>No.Rekening Perusahaan</p>
+                            <p>Rekening PT. Pasar Dunia Seafood</p>
                             <p>Bank Name: BCA</p>
                             <p>Bank Account Name : PT. PASAR DUNIA SEAFOOD</p>
                             <p>Bank Account Number :123456789 </p>
@@ -28,7 +28,7 @@
                                         <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">
                                         <br>
                                         @endif
-                                    <label>Upload Bukti Transfer DP</label>
+                                    <label>Proof Of Payment (DP)</label>
                                     <input type="file" id="payment_proof" name="payment_proof" class="form-control" id="fileToUpload">
                                 </div>
                                 <div id="cash" class="col-6">
@@ -36,7 +36,7 @@
                                         <img src="{{ $order['payment_proof_final'] }}" style="height: 300px; width: auto">
                                         <br>
                                         @endif
-                                    <label>Upload Bukti Transfer Pelunasan</label>
+                                    <label>Proof Of Payment (DONE)</label>
                                     <input type="file" id="payment_proof_final" name="payment_proof_final" class="form-control" id="fileToUpload">
                                 </div>
                                 </div>
