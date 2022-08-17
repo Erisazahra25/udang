@@ -164,7 +164,8 @@ class HomeController extends Controller
 
         $request->validate([
             'payment_proof' => "file|mimes:jpeg,png,jpg,gif,svg|max:1000",
-            'payment_proof_final' => "file|mimes:jpeg,png,jpg,gif,svg|max:1000"
+            'payment_proof_final' => "file|mimes:jpeg,png,jpg,gif,svg|max:1000",
+            'dp' => 'required|integer',
         ]);
 
         $image_path = $order['payment_proof'];
@@ -182,6 +183,7 @@ class HomeController extends Controller
             $image_path = '/storage/payment_proof_final/' . $main_image;
         }
         $order['payment_proof_final'] = $image_path;
+        $order['dp'] = $request['dp'];
 
         $order->save();
 

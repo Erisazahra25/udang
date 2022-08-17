@@ -24,12 +24,16 @@
                                 @csrf
                                 <div class="row">
                                 <div id="dp" class="col-6">
+                                    <label>Jumlah DP</label>
+                                    <input type="number" class="form-control" name="dp" required>
+
                                     @if($order['payment_proof'] !== null)
                                         <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">
                                         <br>
                                         @endif
                                     <label>Proof Of Payment (DP)</label>
                                     <input type="file" id="payment_proof" name="payment_proof" class="form-control" id="fileToUpload">
+
                                 </div>
                                 <div id="cash" class="col-6">
                                     @if($order['payment_proof_final'] !== null)

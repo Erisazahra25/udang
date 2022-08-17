@@ -114,13 +114,20 @@
                             <div class="col-6">
                                 @if($order['payment_proof'] !== null)
                                     <hr>
+                                    <h6>Payment (DP)</h6>
+                                    <p>{{ formatPrice($order['dp']) }}</p>
                                     <h6>Proof Of Payment (DP)</h6>
                                     <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">
                                 @endif
                             </div>
                             <div class="col-6">
+                                <hr>
+                                <h6>Total Payment Must Be Pay</h6>
+                                <p>{{($order['total_payment']) }}</p>
+                                <p>{{formatPrice($order['dp']) }}</p>
+                                <p>{{($order['total_payment'] - $order['dp'])}}</p>
+                                {{-- <p>{{($order['total_payment']) - formatPrice($order['dp'])}}</p> --}}
                                 @if($order['payment_proof_final'] !== null)
-                                    <hr>
                                     <h6>Proof Of Payment (DONE)</h6>
                                     <img src="{{ $order['payment_proof_final'] }}" style="height: 300px; width: auto">
                                 @endif

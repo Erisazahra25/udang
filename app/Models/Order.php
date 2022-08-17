@@ -16,6 +16,7 @@ class Order extends Model
         'status',
         'payment_proof',
         'payment_proof_final',
+        'dp',
     ];
 
     const STATUS_OPTION = [
@@ -128,4 +129,13 @@ class Order extends Model
         return $total;
     }
 
+    public function TotalPayment()
+    {
+        $total = 0;
+        foreach ($this->orderDetails()->get() as $orderDetail) {
+            $total += $orderDetail['amount'] * $orderDetail['buy_price'];
+        }
+
+        return $total;
+    }
 }
