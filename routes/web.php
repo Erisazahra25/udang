@@ -71,4 +71,6 @@ Route::group(['middleware' => ['is_admin']], function () {
 
 
     Route::post('order/{order}/update-status', [OrderController::class, 'updateStatus']);
+    Route::post('order/{order}/update-dp', [OrderController::class, 'updateDp']);
+
 });

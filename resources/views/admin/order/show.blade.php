@@ -117,11 +117,38 @@
                             </div>
                             <!-- /.col -->
                         </div>
-                        @if($order['payment_proof'] !== null)
-                            <hr>
-                            <h6>Payment Proof</h6>
-                            <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">
-                        @endif
+                        <div class="row">
+                            <div class="col-6">
+                                @if($order['payment_proof'] !== null)
+                                    <hr>
+                                    <form action="/order/{{ $order['id'] }}/update-dp" method="POST">
+                                    @csrf
+                                    <h6>Payment (DP)</h6>
+                                    <div class="row">
+                                    <div class="col-4">
+                                    <input type="text" class="form-control" name="updateDp" value="{{($order['dp'])}}">
+                                    </div>
+                                    <div class="col-2">
+                                    <button type="submit" class="form-control btn btn-info btn-sm">update</button>
+                                    </div>
+                                    </div>
+                                    </form>
+                                    <hr>
+                                    <h6>Proof Of Payment (DP)</h6>
+                                    <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">
+                                @endif
+                            </div>
+                            <div class="col-6">
+                                <hr>
+                                <hr>
+                                <h6>Total Payment Must Be Pay</h6>
+                                <p>{{formatPrice(($order['totalDp'])-($order['dp']))}}</p>
+                                @if($order['payment_proof_final'] !== null)
+                                    <h6>Proof Of Payment (DONE)</h6>
+                                    <img src="{{ $order['payment_proof_final'] }}" style="height: 300px; width: auto">
+                                @endif
+                            </div>
+                        </div>
                         <!-- /.row -->
                     </div>
                     <!-- /.invoice -->

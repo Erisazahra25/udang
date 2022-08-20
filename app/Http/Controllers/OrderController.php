@@ -34,4 +34,13 @@ class OrderController extends Controller
 
         return redirect()->back()->withMessage('Order status updated');
     }
+
+    public function updateDp(Request $request, Order $order)
+    {
+
+        $order['dp'] = $request['updateDp'];
+        $order->save();
+
+        return redirect()->back()->withMessage('Order DP updated');
+    }
 }

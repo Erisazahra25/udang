@@ -17,13 +17,13 @@ class Order extends Model
         'payment_proof',
         'payment_proof_final',
         'dp',
+        'totalDp',
     ];
 
     const STATUS_OPTION = [
         'draft',
         'pending_payment',
         'success_payment',
-        'shipping',
         'done',
     ];
 
@@ -115,7 +115,7 @@ class Order extends Model
 
     public function getTotalPaymentAttribute()
     {
-        return formatPrice($this->totalShippingPrice() + $this->amount());
+        return ($this->totalShippingPrice() + $this->amount());
 
     }
 
@@ -129,13 +129,5 @@ class Order extends Model
         return $total;
     }
 
-    public function TotalPayment()
-    {
-        $total = 0;
-        foreach ($this->orderDetails()->get() as $orderDetail) {
-            $total += $orderDetail['amount'] * $orderDetail['buy_price'];
-        }
 
-        return $total;
-    }
 }

@@ -45,7 +45,7 @@
                                 <b>Payment Status : {{ $order['status'] }}</b><br>
                                 <b>Due Time Payment : {{$order['created_at']->addMonth(1)->format('d-F-Y')}}</b>
 
-                                @if($order['status'] === 'pending_payment')
+                                @if(($order['status'] === 'pending_payment'))
                                 <a href="{{ route('my.order.detail.upload',$order['id']) }}" class="btn btn-success">Upload
                                     Proof Of Payment</a>
                                 @endif
@@ -103,7 +103,7 @@
                                         </tr>
                                         <tr>
                                             <th>Total:</th>
-                                            <td>{{ $order['total_payment'] }}</td>
+                                            <td>{{ formatPrice($order['total_payment']) }}</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -123,10 +123,7 @@
                             <div class="col-6">
                                 <hr>
                                 <h6>Total Payment Must Be Pay</h6>
-                                <p>{{($order['total_payment']) }}</p>
-                                <p>{{formatPrice($order['dp']) }}</p>
-                                <p>{{($order['total_payment'] - $order['dp'])}}</p>
-                                {{-- <p>{{($order['total_payment']) - formatPrice($order['dp'])}}</p> --}}
+                                <p>{{formatPrice(($order['totalDp'])-($order['dp']))}}</p>
                                 @if($order['payment_proof_final'] !== null)
                                     <h6>Proof Of Payment (DONE)</h6>
                                     <img src="{{ $order['payment_proof_final'] }}" style="height: 300px; width: auto">

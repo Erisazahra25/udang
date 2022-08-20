@@ -32,6 +32,8 @@
                                 <th>Amount</th>
                                 <th>Shipping Price</th>
                                 <th>Total Amount</th>
+                                <th>Dp</th>
+                                <th>Missing Payment</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -46,7 +48,15 @@
                                     <td>{{ $order->shippingPrice['city'] }}<br>
                                         {{ $order['total_shipping_price'] }}
                                     </td>
-                                    <td>{{ $order['total_payment'] }}</td>
+                                    <td>{{ formatPrice($order['total_payment']) }}</td>
+                                    <td>{{ formatPrice($order['dp']) }}</td>
+
+                                    @if(($order['status'] === 'done') OR ($order['status'] === 'success_payment'))
+                                    <td>Payment Success</td>
+                                    @else
+                                    <td>{{formatPrice(($order['totalDp'])-($order['dp']))}}</td>
+                                    @endif
+
                                     <td>{{ $order['status'] }}</td>
                                     <td>
                                         <a href="/my/order/invoice/{{ $order['id'] }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i></a>

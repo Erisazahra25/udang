@@ -17,6 +17,7 @@
                                 <div class="card-body text-center">
                                     <h4>Capital</h4>
                                     <h2>{{formatPrice($modal)}}</h2>
+                                    <label>purchasing shrimp in the pond</label>
                                 </div>
                             </div>
                         </div>
@@ -25,6 +26,7 @@
                                 <div class="card-body text-center">
                                     <h4>Omset</h4>
                                     <h2>{{formatPrice($omset)}}</h2>
+                                    <label>total revenue earned by the company</label>
                                 </div>
                             </div>
                         </div>
@@ -33,6 +35,7 @@
                                 <div class="card-body text-center">
                                     <h4>{{ $untungRugi >= 0 ? 'Profit':'Loss'}}</h4>
                                     <h2>{{formatPrice($untungRugi)}}</h2>
+                                    <label> omset - tax 0.25%</label>
 
                                 </div>
                             </div>
@@ -42,6 +45,7 @@
                                 <div class="card-body text-center">
                                     <h4>Total Sold</h4>
                                     <h2>{{ $totalAmount }} Kg</h2>
+                                    <label>total shrimp sold</label>
 
                                 </div>
                             </div>

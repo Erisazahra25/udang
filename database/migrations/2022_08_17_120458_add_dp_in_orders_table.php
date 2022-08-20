@@ -15,6 +15,7 @@ class AddDpInOrdersTable extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->unsignedBigInteger('dp')->nullable();
+            $table->unsignedBigInteger('totalDp')->nullable();
 
         });
     }

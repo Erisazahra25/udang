@@ -11,7 +11,7 @@
                         </div>
                         <div class="card-body">
                             <h4 class="text-center">Total Payment</h4>
-                            <h2 class="text-center">{{ $order['total_payment'] }}</h2>
+                            <h2 class="text-center">{{ formatPrice($order['total_payment']) }}</h2>
                             <p>Rekening PT. Pasar Dunia Seafood</p>
                             <p>Bank Name: BCA</p>
                             <p>Bank Account Name : PT. PASAR DUNIA SEAFOOD</p>
@@ -24,8 +24,13 @@
                                 @csrf
                                 <div class="row">
                                 <div id="dp" class="col-6">
+                                    <input type="hidden" name="totalDp" value="{{$order['total_payment']}}">
                                     <label>Jumlah DP</label>
-                                    <input type="number" class="form-control" name="dp" required>
+                                    @if($order['payment_proof'] === null)
+                                    <input type="number" class="form-control" name="dp">
+                                    @elseif($order['payment_proof'] !== null)
+                                    <input type="number" value="{{$order['dp']}}" class="form-control" name="dp" readonly>
+                                    @endif
 
                                     @if($order['payment_proof'] !== null)
                                         <img src="{{ $order['payment_proof'] }}" style="height: 300px; width: auto">

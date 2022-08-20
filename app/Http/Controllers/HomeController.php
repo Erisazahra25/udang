@@ -184,6 +184,7 @@ class HomeController extends Controller
         }
         $order['payment_proof_final'] = $image_path;
         $order['dp'] = $request['dp'];
+        $order['totalDp'] = $request['totalDp'];
 
         $order->save();
 
