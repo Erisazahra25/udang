@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
-@section('title') Sales Report @stop
+@section('title')
+    Sales Report
+@stop
 
 @section('content')
     <section class="content">
@@ -9,6 +11,19 @@
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title">Income Statement</h3>
+                        @if(isset($_GET['start_date']) && isset($_GET['end_date']))
+                            @if($_GET['start_date'] === $_GET['end_date'] && $_GET['start_date'] === now()->format('Y-m-d'))
+                                <p>Filter Date : Today</p>
+                            @elseif($_GET['start_date'] === $_GET['end_date'] && $_GET['start_date'] !== now()->format('Y-m-d'))
+                                <p>Filter Date : {{ \Carbon\Carbon::createFromFormat('Y-m-d', $_GET['start_date'])->format('j F Y') }}</p>
+                            @else
+                                <p>Filter Date
+                                    : {{ \Carbon\Carbon::createFromFormat('Y-m-d', $_GET['start_date'])->format('j F Y') }}
+                                    - {{ \Carbon\Carbon::createFromFormat('Y-m-d', $_GET['end_date'])->format('j F Y') }}</p>
+                            @endif
+                        @else
+                            <p>Filter Date : All time</p>
+                        @endif
                     </div>
 
                     <div class="row">
@@ -53,26 +68,29 @@
                     </div>
                     <div class="row">
                         @foreach($resultProduct as $category)
-                        <div class="col-3">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <h4>{{ $category['name'] }}</h4>
-                                    <h2>{{ $category['subTotal'] }} Kg</h2>
+                            <div class="col-3">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h4>{{ $category['name'] }}</h4>
+                                        <h2>{{ $category['subTotal'] }} Kg</h2>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <form action="" method="GET">
                             <label>Start : </label>
-                            <input type="date" class="form-control col-md-4" name="start_date" value="{{ isset($_GET['start_date'])?$_GET['start_date']:now()->format('Y-m-d') }}">
+                            <input type="date" class="form-control col-md-4" name="start_date"
+                                   value="{{ isset($_GET['start_date'])?$_GET['start_date']:now()->format('Y-m-d') }}">
                             <label>End : </label>
-                            <input type="date" class="form-control col-md-4" name="end_date" value="{{ isset($_GET['end_date'])?$_GET['end_date']:now()->format('Y-m-d') }}">
+                            <input type="date" class="form-control col-md-4" name="end_date"
+                                   value="{{ isset($_GET['end_date'])?$_GET['end_date']:now()->format('Y-m-d') }}">
                             <p></p>
-                            <button type="submit" class="form-control btn btn-pro btn-info btn-s col-md-2">Filter</button>
+                            <button type="submit" class="form-control btn btn-pro btn-info btn-s col-md-2">Filter
+                            </button>
                         </form>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
@@ -88,7 +106,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                                @foreach($orders as $order)
+                            @foreach($orders as $order)
                                 <tr>
                                     <td>{{ $order['created_at'] }}</td>
                                     <td>{{ $order['user']['name'] }}</td>

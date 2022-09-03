@@ -66,8 +66,7 @@ class ReportController extends Controller
         foreach ($product as $item) {
             $subTotal = 0;
             foreach ($item->productDetails()->get() as $pdl) {
-                $orderDetails = $pdl->orderDetails()->load('order');
-                $subTotal += $orderDetails->whereHas('order', function ($order) use ($request) {
+                $subTotal += $pdl->orderDetails()->whereHas('order', function ($order) use ($request) {
                     if (isset($request['start_date']) && isset($request['end_date'])) {
                         $order->where('status', 'done')
                             ->whereDate('created_at', '>=', $request['start_date'])
