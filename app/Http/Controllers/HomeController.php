@@ -10,6 +10,7 @@ use App\Models\ShippingPrice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -170,19 +171,28 @@ class HomeController extends Controller
 
         $image_path = $order['payment_proof'];
         if ($request->file('payment_proof') != '') {
+            if($image_path !== null) {
+                $productImage = str_replace('/storage', '', $image_path);
+                Storage::delete('/public' . $productImage);
+            }
+
             $main_image = uniqid() . '.' . $request->file('payment_proof')->getClientOriginalExtension();
             $request->file('payment_proof')->move(storage_path('app/public/payment_proof'), $main_image);
             $image_path = '/storage/payment_proof/' . $main_image;
         }
         $order['payment_proof'] = $image_path;
 
-        $image_path = $order['payment_proof_final'];
+        $image_path2 = $order['payment_proof_final'];
         if ($request->file('payment_proof_final') != '') {
-            $main_image = uniqid() . '.' . $request->file('payment_proof_final')->getClientOriginalExtension();
-            $request->file('payment_proof_final')->move(storage_path('app/public/payment_proof_final'), $main_image);
-            $image_path = '/storage/payment_proof_final/' . $main_image;
+            if($image_path2 !== null) {
+                $productImage = str_replace('/storage', '', $image_path2);
+                Storage::delete('/public' . $productImage);
+            }
+            $main_image2 = uniqid() . '.' . $request->file('payment_proof_final')->getClientOriginalExtension();
+            $request->file('payment_proof_final')->move(storage_path('app/public/payment_proof_final'), $main_image2);
+            $image_path2 = '/storage/payment_proof_final/' . $main_image2;
         }
-        $order['payment_proof_final'] = $image_path;
+        $order['payment_proof_final'] = $image_path2;
         $order['dp'] = $request['dp'];
         $order['totalDp'] = $request['totalDp'];
 
